@@ -1,5 +1,8 @@
 ﻿@{
     ViewBag.Title = "User Registration";
+    var message = "";
+    
+
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
@@ -9,6 +12,20 @@
     <p>Email: </p><input name="email" type="email" /><br /><br />
     <p>Password: </p><input name="password" type="password" /><br /><br />
     <p>Confirm Password: </p> <input name="confrimPW" type="password" /><br />
+    @*@{ 
+
+        if (@Validator.TruePW(r.password) && password == confirmPW)
+        {
+            ViewBag.password = $"Your password{password}, was accepted. Be sure to keep it secure!";
+            message = "Your Passwords match!";
+        }
+        else
+        {
+
+            message = "Your Passwords must match.";
+        }
+        <p>@message</p>
+    }*@
     <br /><br />
     <p>Phone Number: </p><input name="phoneNum" type="tel"/>
     <br /><br /><br />

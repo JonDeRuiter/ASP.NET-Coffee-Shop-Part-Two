@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Coffee_Shop_Web_App_Lab_21.Controllers
 {
     public class HomeController : Controller
@@ -23,7 +24,7 @@ namespace Coffee_Shop_Web_App_Lab_21.Controllers
 
         public ActionResult Welcome(Registration r)
         {
-            ViewBag.Message = $"Welcome {r.email} can I call you {r.firstName}?";
+            ViewBag.message = $"Welcome {r.email} can I call you {r.firstName}?";
             if (Validator.TruePW(r.password) && r.password == r.confirmPW)
             {
                 ViewBag.password = $"Your password{r.password}, was accepted. Be sure to keep it secure!";
