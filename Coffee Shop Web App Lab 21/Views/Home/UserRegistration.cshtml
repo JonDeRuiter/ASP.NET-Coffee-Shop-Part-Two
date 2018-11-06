@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "User Registration";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<form method="post" action="Welcome">
+    <p>Frist Name: </p><input name="firstName" /><br /><br />
+    <p>Email: </p><input name="email" type="email" /><br /><br />
+    <p>Password: </p><input name="password" type="password" /><br /><br />
+    <p>Confirm Password: </p> <input name="confrimPW" type="password" /><br />
+    <br /><br />
+    <p>Phone Number: </p><input name="phoneNum" type="tel"/>
+    <br /><br /><br />
+    <p>Favorite Nintendo Character: <br /> (Purely for research purposes)</p>
+    <input type="radio" name="ninFav" value="yoshi" /> Yoshi <br />
+    <input type="radio" name="ninFav" value="luigi" /> Luigi<br />
+    <input type="radio" name="ninFav" value="waaaa" checked/> Anyone but Waluigi <br /> <br />
+    <p>Thank you for signing up for our newsletter and reading all of our promotional emails! <br />(they're comming don't worry!)</p>
+    <input type="checkbox" name="marketing" value="yes" checked /> <br />
+    <input type="submit" /><br />
+
+</form>
