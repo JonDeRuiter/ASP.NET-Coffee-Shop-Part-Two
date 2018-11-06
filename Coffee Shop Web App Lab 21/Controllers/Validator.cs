@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project_Coffee_Shop
+namespace Coffee_Shop_Web_App_Lab_21.Controllers
 {
     class Validator
     {
@@ -101,6 +101,19 @@ namespace Project_Coffee_Shop
                 return x = IsDigit(Console.ReadLine());
             }
         }
+        public static bool IsDigit(char[] phoneArray)
+        {
+            
+            foreach (char c in phoneArray)
+                {
+                    if (!(char.IsDigit(c)))
+                    {
+                        return false;
+                    }
+                }
+            return true;
+            
+        }
         public static int DigitInRange(string input, int y)
         {
             int x;
@@ -146,6 +159,62 @@ namespace Project_Coffee_Shop
                 x = DigitInRange(Console.ReadLine(), min, max);
                 return x;
             }
+        }
+        public static bool ValidPhone(string input)
+        {
+            bool valid = true;
+            try
+            {
+                string first, second, third, phoneDigits;
+                
+
+                if (input.Length == 12)
+                {
+                    first = input.Substring(0, 3);
+                    second = input.Substring(4, 3);
+                    third = input.Substring(8, 4);
+                    phoneDigits = first + second + third;
+
+                    char[] inputArray = input.ToCharArray();
+                    char[] phoneArray = phoneDigits.ToCharArray();
+
+                    if (!(inputArray[3] == '-' && inputArray[7] == '-'))
+                    {
+                        valid = false;
+                    }
+
+                    if (!(IsDigit(phoneArray)))
+                    {
+                        valid = false;
+                    }
+
+                }
+                else
+                {
+                    valid = false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Please Try Again:");
+            }
+            return valid;
+        }
+        public static bool TruePW(string trying)
+        {
+            if ((trying.Length > 6 && trying.Length <16))
+            {
+                char[] tryArray = trying.ToCharArray();
+                foreach (char c in tryArray)
+                {
+                    if (char.IsDigit(c) && char.IsLetter(c))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
