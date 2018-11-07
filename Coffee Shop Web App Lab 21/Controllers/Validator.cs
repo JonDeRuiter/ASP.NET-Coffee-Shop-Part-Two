@@ -208,13 +208,13 @@ namespace Coffee_Shop_Web_App_Lab_21.Controllers
                 char[] tryArray = trying.ToCharArray();
                 foreach (char c in tryArray)
                 {
-                    if (char.IsDigit(c) && char.IsLetter(c))
+                    if (!(char.IsDigit(c) || char.IsLetter(c)))
                     {
-                        return true;
+                        return false;
                     }
                 }
             }
-            return false;
+            return true;
         }
     }
 }
